@@ -54,9 +54,6 @@ const addTodo = () => {
       if(numTrue == todos.length) {
         newTodo.completed = false;
         return newTodo;
-      } else if(numTrue < numFalse) {
-        newTodo.completed = true;
-        return newTodo;
       } else {
         newTodo.completed = true;
         return newTodo;
