@@ -39,18 +39,14 @@ const addTodo = () => {
     let numTrue = 0;
     let numFalse = 0;
     todos.forEach(todo => {
-        console.log(todo.completed);
         if(todo.completed == true){
             numTrue++;
         } else { 
             numFalse++;
         }
-        console.log(numTrue);
-        console.log(numFalse);
     });
     const newTodos = todos.map(todo => {
       const newTodo = todo;
-      console.log(todos.length);
       if(numTrue == todos.length) {
         newTodo.completed = false;
         return newTodo;
