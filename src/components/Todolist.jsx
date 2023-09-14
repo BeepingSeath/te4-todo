@@ -68,7 +68,7 @@ const addTodo = () => {
     <input id="newTodo" type="text" placeholder="Skriv in en sak!"/>
     <button onClick={() => { addTodo() }}>Lägg till</button>
     <button onClick={() => { checkAll() }}>Checka alla</button>
-    <button onClick={() => { deleteAll() }}>Ta bort allt</button>
+    <button onClick={() => { deleteAll() }}><img src="../src/assets/DELETEsWEEP.svg"/></button>
     <ul className="todo-list">
         {todos.map((todo, index) => <Todoitem
             key={ index }

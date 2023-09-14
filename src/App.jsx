@@ -6,7 +6,7 @@ function App() {
 
   return (
       <div className="container">
-        <h1>Vill du göra sak?</h1>
+        <h1>Checklista</h1>
         <Todolist/>
       </div>
   )
