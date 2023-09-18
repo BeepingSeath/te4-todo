@@ -5,10 +5,10 @@ import Todolist from './components/Todolist'
 function App() {
 
   return (
-      <div className="container">
-        <h1>Checklista</h1>
-        <Todolist/>
-      </div>
+    <div className="container">
+      <h1>Checklista</h1>
+      <Todolist />
+    </div>
   )
 }
 

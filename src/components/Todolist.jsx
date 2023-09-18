@@ -1,6 +1,6 @@
 import Todoitem from './Todoitem'
 import './Todolist.css'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 function Todolist() {
   const [todos, setTodos] = useState(() => {
@@ -12,17 +12,17 @@ function Todolist() {
   }, [todos]);
 
   const deleteAll = () => {
-    setTodos([]); 
+    setTodos([]);
     localStorage.setItem('index', 0) // create number that rises every added item to use for items id / resets it to zero 
-}
+  }
 
-const addTodo = () => {
+  const addTodo = () => {
     const newTodo = document.getElementById('newTodo').value;
     if (newTodo === '') return
     const newTodos = [...todos, { id: localStorage.getItem('index'), label: newTodo, completed: false }]    //uses locally stored number to get index
     setTodos(newTodos)
-    localStorage.setItem('index', parseInt(localStorage.getItem('index'))+1 || parseInt(todos.length)+1)    // adds number +1 for ever post created
-}
+    localStorage.setItem('index', parseInt(localStorage.getItem('index')) + 1 || parseInt(todos.length) + 1)    // adds number +1 for ever post created
+  }
 
   const toggleTaskCompleted = (id) => {
     const newTodos = todos.map(todo => {
@@ -39,15 +39,15 @@ const addTodo = () => {
     let numTrue = 0;
     let numFalse = 0;
     todos.forEach(todo => {
-        if(todo.completed == true){
-            numTrue++;
-        } else { 
-            numFalse++;
-        }
+      if (todo.completed == true) {
+        numTrue++;
+      } else {
+        numFalse++;
+      }
     });
     const newTodos = todos.map(todo => {
       const newTodo = todo;
-      if(numTrue == todos.length) {
+      if (numTrue == todos.length) {
         newTodo.completed = false;
         return newTodo;
       } else {
@@ -64,20 +64,20 @@ const addTodo = () => {
     setTodos(filtered);
   }
 
-  return ( <>
-    <input id="newTodo" type="text" placeholder="Skriv in en sak!"/>
+  return (<>
+    <input id="newTodo" type="text" placeholder="Skriv in en sak!" />
     <button onClick={() => { addTodo() }}>Lägg till</button>
     <button onClick={() => { checkAll() }}>Checka alla</button>
-    <button onClick={() => { deleteAll() }}><img src="../src/assets/DELETEsWEEP.svg"/></button>
+    <button onClick={() => { deleteAll() }}><img src="../src/assets/DELETEsWEEP.svg" /></button>
     <ul className="todo-list">
-        {todos.map((todo, index) => <Todoitem
-            key={ index }
-            id={todo.id}
-            label={todo.label}
-            completed={todo.completed}
-            toggleTaskCompleted={toggleTaskCompleted}
-            deleteTodo={deleteTodo}/>)}
-    </ul> 
+      {todos.map((todo, index) => <Todoitem
+        key={index}
+        id={todo.id}
+        label={todo.label}
+        completed={todo.completed}
+        toggleTaskCompleted={toggleTaskCompleted}
+        deleteTodo={deleteTodo} />)}
+    </ul>
   </>
   )
 }

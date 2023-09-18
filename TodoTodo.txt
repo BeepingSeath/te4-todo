@@ -1,0 +1,7 @@
+Mindre aggressiva färger
+Knappar liknande storlek
+Göra knapparna mindre tråkiga
+
+Placera "lägg till" knapp inom skrivlådan
+Lägg till confirmation på "ta bort allt knapp"
+Fixa typsnitt
